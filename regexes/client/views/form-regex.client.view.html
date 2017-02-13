@@ -1,0 +1,38 @@
+<section>
+  <div class="page-header">
+    <h1>{{vm.regex._id ? 'Edit Regex' : 'New Regex'}}</h1>
+  </div>
+  <div class="col-md-12">
+    <form name="vm.form.regexForm" class="form-horizontal" ng-submit="vm.save(vm.form.regexForm.$valid)" novalidate>
+      <fieldset>
+        <div class="form-group" show-errors>
+          <label class="control-label" for="Type">Type</label>
+          <input name="Type" type="text" ng-model="vm.regex.Type" id="Type" class="form-control" placeholder="Type" required>
+          <div ng-messages="vm.form.regexForm.Type.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">Regex Type is required.</p>
+          </div>
+        </div>
+        <div class="form-group" show-errors>
+          <label class="control-label" for="Expression">Expression</label>
+          <input name="Expression" type="text" ng-model="vm.regex.Expression" id="Expression" class="form-control" placeholder="Expression" required>
+          <div ng-messages="vm.form.regexForm.Expression.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">Regex is required.</p>
+          </div>
+        </div> 
+        <div class="form-group" show-errors>
+          <label class="control-label" for="Weight">Weight</label>
+          <input name="Weight" type="text" ng-model="vm.regex.Weight" id="Weight" class="form-control" placeholder="Weight" required>
+          <div ng-messages="vm.form.regexForm.Weight.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">Regex Weight is required.</p>
+          </div>
+    </div>
+        <div class="form-group">
+          <button type="submit" class="btn btn-default">{{vm.regex._id ? 'Update' : 'Create'}}</button>
+        </div>
+        <div ng-show="vm.error" class="text-danger">
+          <strong ng-bind="vm.error"></strong>
+        </div>
+      </fieldset>
+    </form>
+  </div>
+</section>

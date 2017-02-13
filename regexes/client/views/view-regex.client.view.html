@@ -1,0 +1,32 @@
+<section>
+  <div class="page-header">
+    <h1 data-ng-bind="vm.regex.Type"></h1>
+  </div>
+  <div class="pull-right"
+       data-ng-show="vm.regex.isCurrentUserOwner">
+    <a class="btn btn-primary"
+       data-ui-sref="regexes.edit({ regexId: vm.regex._id })">
+      <i class="glyphicon glyphicon-edit"></i>
+    </a>
+    <a class="btn btn-primary" data-ng-click="vm.remove()">
+      <i class="glyphicon glyphicon-trash"></i>
+    </a>
+  </div>
+  Expression:
+  <span data-ng-bind="vm.regex.Expression"></span>
+  <br />
+  Weight:
+  <span data-ng-bind="vm.regex.Weight"></span>
+  <br />
+  <small>
+    <em class="text-muted">
+      Posted on
+      <span data-ng-bind="vm.regex.CreatedAt | date:'mediumDate'"></span>
+      by
+      <span data-ng-if="vm.regex.User"
+            data-ng-bind="vm.regex.User.displayName"></span>
+      <span data-ng-if="!vm.regex.User">Deleted User</span>
+    </em>
+  </small>
+  <p class="lead" data-ng-bind="vm.regex.content"></p>
+</section>

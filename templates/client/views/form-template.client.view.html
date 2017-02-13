@@ -1,0 +1,54 @@
+<section>
+  <div class="page-header">
+    <h1>{{vm.template._id ? 'Edit Template' : 'New Template'}}</h1>
+  </div>
+  <div class="col-md-12">
+    <form name="vm.form.templateForm" class="form-horizontal" ng-submit="vm.save(vm.form.templateForm.$valid)" novalidate>
+      <fieldset>
+        <div class="form-group" show-errors>
+          <label class="control-label" for="TemplateType">Template Type</label>
+            <select name="TemplateType" ng-options="templatetype.Name for templatetype in vm.templatetypes track by templatetype._id" ng-model="vm.template.TemplateType" id="TemplateType" class="form-control" placeholder="AddressInfo" required>
+                <option value="">Select Template Type</option>
+            </select>
+          <div ng-messages="vm.form.templateForm.TemplateType.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">Template Type is required.</p>
+          </div>
+        </div>
+        <div class="form-group" show-errors>
+          <label class="control-label" for="AddressInfo">Address Info</label>
+          <input name="AddressInfo" type="text" ng-model="vm.template.AddressInfo" id="AddressInfo" class="form-control" placeholder="AddressInfo" required>
+          <div ng-messages="vm.form.templateForm.AddressInfo.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">Address Info is required.</p>
+          </div>
+        </div>
+        <div class="form-group" show-errors>
+          <label class="control-label" for="AddressData">Address Data</label>
+          <input name="AddressData" type="text" ng-model="vm.template.AddressData" id="AddressData" class="form-control" placeholder="AddressData" required>
+          <div ng-messages="vm.form.templateForm.AddressData.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">Address Data is required.</p>
+          </div>
+        </div>
+        <div class="form-group" show-errors>
+          <label class="control-label" for="Info">Info</label>
+          <input name="Info" type="text" ng-model="vm.template.Info" id="Info" class="form-control" placeholder="Info" required>
+          <div ng-messages="vm.form.templateForm.Info.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">Info is required.</p>
+          </div>
+        </div>
+        <div class="form-group" show-errors>
+          <label class="control-label" for="Data">Data</label>
+          <input name="Data" type="text" ng-model="vm.template.Data" id="Data" class="form-control" placeholder="Data" required>
+          <div ng-messages="vm.form.templateForm.Data.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">Data is required.</p>
+          </div>
+        </div>
+        <div class="form-group">
+          <button type="submit" class="btn btn-default">{{vm.template._id ? 'Update' : 'Create'}}</button>
+        </div>
+        <div ng-show="vm.error" class="text-danger">
+          <strong ng-bind="vm.error"></strong>
+        </div>
+      </fieldset>
+    </form>
+  </div>
+</section>

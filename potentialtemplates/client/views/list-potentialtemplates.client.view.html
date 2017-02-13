@@ -1,0 +1,22 @@
+<section>
+  <div class="page-header">
+    <h1>Potential Templates</h1>
+  </div>
+  <div class="list-group">
+    <a data-ng-repeat="potentialtemplate in vm.potentialtemplates"
+       data-ui-sref="potentialtemplates.view({ potentialtemplateId: potentialtemplate._id })"
+       class="list-group-item">
+      <h4 class="list-group-item-heading" data-ng-bind="potentialtemplate.AddressInfo"></h4>
+      <small class="list-group-item-text">
+        Posted on
+        <span data-ng-bind="potentialtemplate.CreatedAt | date:'mediumDate'"></span>
+        by
+        <span data-ng-if="potentialtemplate.User" data-ng-bind="potentialtemplate.User.displayName"></span>
+        <span data-ng-if="!potentialtemplate.User">Deleted User</span>
+      </small>
+    </a>
+  </div>
+  <div class="alert alert-warning text-center" data-ng-if="vm.potentialtemplates.$resolved && !vm.potentialtemplates.length">
+    No Potential Templates yet, why don't you <a data-ui-sref="potentialtemplates.create">create one</a>?
+  </div>
+</section>
