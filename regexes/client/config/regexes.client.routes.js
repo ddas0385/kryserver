@@ -16,7 +16,7 @@
       })
       .state('regexes.list', {
         url: '',
-        templateUrl: 'modules/regexes/client/views/list-regexes.client.view.html',
+        templateUrl: '/modules/regexes/client/views/list-regexes.client.view.html',
         controller: 'RegexesListController',
         controllerAs: 'vm',
         data: {
@@ -25,7 +25,7 @@
       })
       .state('regexes.create', {
         url: '/create',
-        templateUrl: 'modules/regexes/client/views/form-regex.client.view.html',
+        templateUrl: '/modules/regexes/client/views/form-regex.client.view.html',
         controller: 'RegexesController',
         controllerAs: 'vm',
         resolve: {
@@ -33,12 +33,12 @@
         },
         data: {
           roles: ['user', 'admin'],
-          pageTitle : 'Regexes Create'
+          pageTitle: 'Regexes Create'
         }
       })
       .state('regexes.edit', {
         url: '/:regexId/edit',
-        templateUrl: 'modules/regexes/client/views/form-regex.client.view.html',
+        templateUrl: '/modules/regexes/client/views/form-regex.client.view.html',
         controller: 'RegexesController',
         controllerAs: 'vm',
         resolve: {
@@ -51,13 +51,13 @@
       })
       .state('regexes.view', {
         url: '/:regexId',
-        templateUrl: 'modules/regexes/client/views/view-regex.client.view.html',
+        templateUrl: '/modules/regexes/client/views/view-regex.client.view.html',
         controller: 'RegexesController',
         controllerAs: 'vm',
         resolve: {
           regexResolve: getRegex
         },
-        data:{
+        data: {
           pageTitle: 'Regex {{ articleResolve.name }}'
         }
       });
@@ -76,4 +76,4 @@
   function newRegex(RegexesService) {
     return new RegexesService();
   }
-})();
+}());

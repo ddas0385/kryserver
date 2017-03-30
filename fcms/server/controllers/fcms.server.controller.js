@@ -14,18 +14,17 @@ var path = require('path'),
  */
 exports.create = function(req, res) {
   var fcm = new Fcm(req.body);
-  
- 
+
   var admin = require('firebase-admin');
 
   var serviceAccount = require('./firebase-kroy-firebase-adminsdk-6n7ei-1252d46b46.json');
 
-  if(exports.app === undefined) 
-  {
-    exports.app = admin.initializeApp({
-      credential: admin.credential.cert(serviceAccount),
-      databaseURL: 'https://fir-kroy.firebaseio.com'
-    });
+  if (exports.app === undefined) {
+    exports.app = admin.initializeApp(
+      {
+        credential: admin.credential.cert(serviceAccount),
+        databaseURL: 'https://fir-kroy.firebaseio.com'
+      });
   }
 
   // Send a message to devices subscribed to the provided topic.
@@ -45,11 +44,11 @@ exports.create = function(req, res) {
     .then(function(response) {
     // See the MessagingDevicesResponse reference documentation for
     // the contents of response.
-      
+
       fcm.User = req.user;
-      
+
       fcm.save(function(err) {
-        if (err) { 
+        if (err) {
           return res.status(400).send({
             message: errorHandler.getErrorMessage(err)
           });
@@ -60,7 +59,7 @@ exports.create = function(req, res) {
     })
     .catch(function(error) {
       return res.status(400).send({
-        message: errorHandler.getErrorMessage(error),
+        message: errorHandler.getErrorMessage(error)
       });
     });
 };
@@ -74,8 +73,8 @@ exports.read = function(req, res) {
 
   // Add a custom field to the Article, for determining if the current User is the "owner".
   // NOTE: This field is NOT persisted to the database, since it doesn't exist in the Article model.
-  fcm.isCurrentUserOwner = req.user && fcm.User && fcm.User._id.toString() === req.user._id.toString() ? true : false;
-
+  // fcm.isCurrentUserOwner = req.user && fcm.User && fcm.User._id.toString() === req.user._id.toString() ? true : false;
+  fcm.isCurrentUserOwner = req.user && fcm.User && fcm.User._id.toString() === req.user._id.toString();
   res.jsonp(fcm);
 };
 
@@ -83,9 +82,9 @@ exports.read = function(req, res) {
  * Update a Fcm
  */
 exports.update = function(req, res) {
-  var fcm = req.fcm ;
+  var fcm = req.fcm;
 
-  fcm = _.extend(fcm , req.body);
+  fcm = _.extend(fcm, req.body);
 
   fcm.save(function(err) {
     if (err) {
@@ -102,7 +101,7 @@ exports.update = function(req, res) {
  * Delete an Fcm
  */
 exports.delete = function(req, res) {
-  var fcm = req.fcm ;
+  var fcm = req.fcm;
 
   fcm.remove(function(err) {
     if (err) {
@@ -154,20 +153,20 @@ exports.fcmByID = function(req, res, next, id) {
   });
 };
 
-function sendMessage(req, res)
-{
+function sendMessage(req, res) {
   var admin = require('firebase-admin');
 
   var serviceAccount = require('./firebase-kroy-firebase-adminsdk-6n7ei-1252d46b46.json');
 
-  admin.initializeApp({
-    credential: admin.credential.cert(serviceAccount),
-    databaseURL: 'https://fir-kroy.firebaseio.com'
-  });
+  admin.initializeApp(
+    {
+      credential: admin.credential.cert(serviceAccount),
+      databaseURL: 'https://fir-kroy.firebaseio.com'
+    });
 
   // Send a message to devices subscribed to the provided topic.
   var fcmTopic = '/topics/FinancialTopic';
-    
+
   // See the "Defining the message payload" section below for details
   // on how to define a message payload.
   var payload = {
@@ -187,8 +186,7 @@ function sendMessage(req, res)
     .catch(function(error) {
       res.response = '0';
       return res.status(400).send({
-        message: errorHandler.getErrorMessage(error),
-        
+        message: errorHandler.getErrorMessage(error)
       });
     });
 }

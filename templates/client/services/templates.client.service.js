@@ -1,4 +1,4 @@
-//Templates service used to communicate Templates REST endpoints
+// Templates service used to communicate Templates REST endpoints
 (function () {
   'use strict';
 
@@ -9,7 +9,7 @@
   TemplatesService.$inject = ['$resource'];
 
   function TemplatesService($resource) {
-    return $resource('api/templates/:templateId', {
+    return $resource('/api/templates/:templateId', {
       templateId: '@_id'
     }, {
       update: {
@@ -17,4 +17,4 @@
       }
     });
   }
-})();
+}());

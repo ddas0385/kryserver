@@ -12,4 +12,4 @@
 
     vm.regexes = RegexesService.query();
   }
-})();
+}());

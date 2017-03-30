@@ -36,7 +36,8 @@ exports.read = function(req, res) {
 
   // Add a custom field to the Article, for determining if the current User is the "owner".
   // NOTE: This field is NOT persisted to the database, since it doesn't exist in the Article model.
-  regex.isCurrentUserOwner = req.user && regex.User && regex.User._id.toString() === req.user._id.toString() ? true : false;
+  // regex.isCurrentUserOwner = req.user && regex.User && regex.User._id.toString() === req.user._id.toString() ? true : false;
+  regex.isCurrentUserOwner = req.user && regex.User && regex.User._id.toString() === req.user._id.toString();
 
   res.jsonp(regex);
 };
@@ -45,10 +46,10 @@ exports.read = function(req, res) {
  * Update a Regex
  */
 exports.update = function(req, res) {
-  var regex = req.regex ;
+  var regex = req.regex;
 
-  regex = _.extend(regex , req.body);
-  regex.PlaceHolder = req.body.Type;    
+  regex = _.extend(regex, req.body);
+  regex.PlaceHolder = req.body.Type;
 
   regex.save(function(err) {
     if (err) {
@@ -65,7 +66,7 @@ exports.update = function(req, res) {
  * Delete an Regex
  */
 exports.delete = function(req, res) {
-  var regex = req.regex ;
+  var regex = req.regex;
 
   regex.remove(function(err) {
     if (err) {
@@ -81,7 +82,7 @@ exports.delete = function(req, res) {
 /**
  * List of Regexes
  */
-exports.list = function(req, res) { 
+exports.list = function(req, res) {
   Regex.find().sort('-Weight').populate('User', 'displayName').exec(function(err, regexes) {
     if (err) {
       return res.status(400).send({

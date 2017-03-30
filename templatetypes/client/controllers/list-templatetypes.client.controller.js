@@ -12,4 +12,4 @@
 
     vm.templatetypes = TemplatetypesService.query();
   }
-})();
+}());

@@ -12,4 +12,4 @@
 
     vm.potentialtemplates = PotentialtemplatesService.query();
   }
-})();
+}());

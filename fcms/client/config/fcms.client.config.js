@@ -5,11 +5,11 @@
     .module('fcms')
     .run(menuConfig);
 
-  menuConfig.$inject = ['Menus'];
+  menuConfig.$inject = ['menuService'];
 
-  function menuConfig(Menus) {
+  function menuConfig(menuService) {
     // Set top bar menu items
-    Menus.addMenuItem('topbar', {
+    menuService.addMenuItem('topbar', {
       title: 'Fcms',
       state: 'fcms',
       type: 'dropdown',
@@ -17,16 +17,16 @@
     });
 
     // Add the dropdown list item
-    Menus.addSubMenuItem('topbar', 'fcms', {
+    menuService.addSubMenuItem('topbar', 'fcms', {
       title: 'List Fcms',
       state: 'fcms.list'
     });
 
     // Add the dropdown create item
-    Menus.addSubMenuItem('topbar', 'fcms', {
+    menuService.addSubMenuItem('topbar', 'fcms', {
       title: 'Create Fcm',
       state: 'fcms.create',
       roles: ['user']
     });
   }
-})();
+}());

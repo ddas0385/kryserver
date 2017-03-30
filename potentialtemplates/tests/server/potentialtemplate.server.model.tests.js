@@ -11,7 +11,8 @@ var should = require('should'),
 /**
  * Globals
  */
-var user, potentialtemplate;
+var user;
+var potentialtemplate;
 
 /**
  * Unit tests
@@ -27,7 +28,7 @@ describe('Potentialtemplate Model Unit Tests:', function() {
       password: 'password'
     });
 
-    user.save(function() { 
+    user.save(function() {
       potentialtemplate = new Potentialtemplate({
         name: 'Potentialtemplate Name',
         user: user
@@ -46,7 +47,7 @@ describe('Potentialtemplate Model Unit Tests:', function() {
       });
     });
 
-    it('should be able to show an error when try to save without name', function(done) { 
+    it('should be able to show an error when try to save without name', function(done) {
       potentialtemplate.name = '';
 
       return potentialtemplate.save(function(err) {
@@ -56,10 +57,10 @@ describe('Potentialtemplate Model Unit Tests:', function() {
     });
   });
 
-  afterEach(function(done) { 
-    Potentialtemplate.remove().exec(function(){
-      User.remove().exec(function(){
-        done();  
+  afterEach(function(done) {
+    Potentialtemplate.remove().exec(function() {
+      User.remove().exec(function() {
+        done();
       });
     });
   });

@@ -20,7 +20,7 @@
 
     // Remove existing Fcm
     function remove() {
-      if (confirm('Are you sure you want to delete?')) {
+      if (confirm('Are you sure you want to delete?')) { // eslint-disable-line no-alert
         vm.fcm.$remove($state.go('fcms.list'));
       }
     }
@@ -50,4 +50,4 @@
       }
     }
   }
-})();
+}());

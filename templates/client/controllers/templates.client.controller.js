@@ -21,10 +21,10 @@
     var temptemplatetypes = TemplatetypesService.query(function() {
       vm.templatetypes = temptemplatetypes;
     });
-      
+
     // Remove existing Template
     function remove() {
-      if (confirm('Are you sure you want to delete?')) {
+      if (confirm('Are you sure you want to delete?')) { // eslint-disable-line no-alert
         vm.template.$remove($state.go('templates.list'));
       }
     }
@@ -54,4 +54,4 @@
       }
     }
   }
-})();
+}());

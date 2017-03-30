@@ -12,4 +12,4 @@
 
     vm.fcms = FcmsService.query();
   }
-})();
+}());

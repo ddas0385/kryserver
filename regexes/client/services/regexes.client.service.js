@@ -1,4 +1,4 @@
-//Regexes service used to communicate Regexes REST endpoints
+// Regexes service used to communicate Regexes REST endpoints
 (function () {
   'use strict';
 
@@ -9,7 +9,7 @@
   RegexesService.$inject = ['$resource'];
 
   function RegexesService($resource) {
-    return $resource('api/regexes/:regexId', {
+    return $resource('/api/regexes/:regexId', {
       regexId: '@_id'
     }, {
       update: {
@@ -17,4 +17,4 @@
       }
     });
   }
-})();
+}());

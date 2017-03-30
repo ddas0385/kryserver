@@ -11,7 +11,11 @@ var should = require('should'),
 /**
  * Globals
  */
-var app, agent, credentials, user, template;
+var app;
+var agent;
+var credentials;
+var user;
+var template;
 
 /**
  * Template routes tests

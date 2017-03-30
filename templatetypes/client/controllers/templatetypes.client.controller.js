@@ -20,7 +20,7 @@
 
     // Remove existing Templatetype
     function remove() {
-      if (confirm('Are you sure you want to delete?')) {
+      if (confirm('Are you sure you want to delete?')) { // eslint-disable-line no-alert
         vm.templatetype.$remove($state.go('templatetypes.list'));
       }
     }
@@ -38,7 +38,7 @@
       } else {
         vm.templatetype.$save(successCallback, errorCallback);
       }
-        
+
       function successCallback(res) {
         $state.go('templatetypes.view', {
           templatetypeId: res._id
@@ -50,4 +50,4 @@
       }
     }
   }
-})();
+}());

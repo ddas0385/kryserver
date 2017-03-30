@@ -1,4 +1,4 @@
-//Potentialtemplates service used to communicate Potentialtemplates REST endpoints
+// Potentialtemplates service used to communicate Potentialtemplates REST endpoints
 (function () {
   'use strict';
 
@@ -9,7 +9,7 @@
   PotentialtemplatesService.$inject = ['$resource'];
 
   function PotentialtemplatesService($resource) {
-    return $resource('api/potentialtemplates/:potentialtemplateId', {
+    return $resource('/api/potentialtemplates/:potentialtemplateId', {
       potentialtemplateId: '@_id'
     }, {
       update: {
@@ -17,4 +17,4 @@
       }
     });
   }
-})();
+}());

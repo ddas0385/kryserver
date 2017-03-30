@@ -2,4 +2,4 @@
   'use strict';
 
   app.registerModule('potentialtemplates');
-})(ApplicationConfiguration);
+}(ApplicationConfiguration));

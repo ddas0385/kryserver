@@ -1,4 +1,4 @@
-//Templatetypes service used to communicate Templatetypes REST endpoints
+// Templatetypes service used to communicate Templatetypes REST endpoints
 (function () {
   'use strict';
 
@@ -9,7 +9,7 @@
   TemplatetypesService.$inject = ['$resource'];
 
   function TemplatetypesService($resource) {
-    return $resource('api/templatetypes/:templatetypeId', {
+    return $resource('/api/templatetypes/:templatetypeId', {
       templatetypeId: '@_id'
     }, {
       update: {
@@ -17,4 +17,4 @@
       }
     });
   }
-})();
+}());

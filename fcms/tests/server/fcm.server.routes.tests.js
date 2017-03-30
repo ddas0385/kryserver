@@ -11,7 +11,11 @@ var should = require('should'),
 /**
  * Globals
  */
-var app, agent, credentials, user, fcm;
+var app;
+var agent;
+var credentials;
+var user;
+var fcm;
 
 /**
  * Fcm routes tests

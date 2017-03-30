@@ -36,7 +36,8 @@ exports.read = function(req, res) {
 
   // Add a custom field to the Article, for determining if the current User is the "owner".
   // NOTE: This field is NOT persisted to the database, since it doesn't exist in the Article model.
-  templatetype.isCurrentUserOwner = req.user && templatetype.User && templatetype.User._id.toString() === req.user._id.toString() ? true : false;
+  // templatetype.isCurrentUserOwner = req.user && templatetype.User && templatetype.User._id.toString() === req.user._id.toString() ? true : false;
+  templatetype.isCurrentUserOwner = req.user && templatetype.User && templatetype.User._id.toString() === req.user._id.toString();
 
   res.jsonp(templatetype);
 };
@@ -45,9 +46,9 @@ exports.read = function(req, res) {
  * Update a Templatetype
  */
 exports.update = function(req, res) {
-  var templatetype = req.templatetype ;
+  var templatetype = req.templatetype;
 
-  templatetype = _.extend(templatetype , req.body);
+  templatetype = _.extend(templatetype, req.body);
 
   templatetype.save(function(err) {
     if (err) {
@@ -64,7 +65,7 @@ exports.update = function(req, res) {
  * Delete an Templatetype
  */
 exports.delete = function(req, res) {
-  var templatetype = req.templatetype ;
+  var templatetype = req.templatetype;
 
   templatetype.remove(function(err) {
     if (err) {
@@ -80,7 +81,7 @@ exports.delete = function(req, res) {
 /**
  * List of Templatetypes
  */
-exports.list = function(req, res) { 
+exports.list = function(req, res) {
   Templatetype.find().sort('Name').populate('User', 'displayName').exec(function(err, templatetypes) {
     if (err) {
       return res.status(400).send({

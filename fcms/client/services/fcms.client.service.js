@@ -1,4 +1,4 @@
-//Fcms service used to communicate Fcms REST endpoints
+// Fcms service used to communicate Fcms REST endpoints
 (function () {
   'use strict';
 
@@ -9,7 +9,7 @@
   FcmsService.$inject = ['$resource'];
 
   function FcmsService($resource) {
-    return $resource('api/fcms/:fcmId', {
+    return $resource('/api/fcms/:fcmId', {
       fcmId: '@_id'
     }, {
       update: {
@@ -17,4 +17,4 @@
       }
     });
   }
-})();
+}());

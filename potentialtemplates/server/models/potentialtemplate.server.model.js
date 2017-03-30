@@ -17,7 +17,7 @@ var PotentialTemplateSchema = new Schema({
   ID: {
     type: Number,
     required: true,
-    min: 1  
+    min: 1
   },
   AddressInfo: {
     type: String,
@@ -33,7 +33,7 @@ var PotentialTemplateSchema = new Schema({
     type: Number,
     required: true,
     min: 1
-  },    
+  },
   User: {
     type: Schema.ObjectId,
     ref: 'User'
@@ -48,7 +48,7 @@ var PotentialTemplateSchema = new Schema({
   },
   Version: {
     type: Number
-  }    
+  }
 },
   {
     collection: 'PotentialTemplate',

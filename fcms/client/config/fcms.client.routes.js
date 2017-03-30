@@ -16,7 +16,7 @@
       })
       .state('fcms.list', {
         url: '',
-        templateUrl: 'modules/fcms/client/views/list-fcms.client.view.html',
+        templateUrl: '/modules/fcms/client/views/list-fcms.client.view.html',
         controller: 'FcmsListController',
         controllerAs: 'vm',
         data: {
@@ -25,7 +25,7 @@
       })
       .state('fcms.create', {
         url: '/create',
-        templateUrl: 'modules/fcms/client/views/form-fcm.client.view.html',
+        templateUrl: '/modules/fcms/client/views/form-fcm.client.view.html',
         controller: 'FcmsController',
         controllerAs: 'vm',
         resolve: {
@@ -33,12 +33,12 @@
         },
         data: {
           roles: ['user', 'admin'],
-          pageTitle : 'Fcms Create'
+          pageTitle: 'Fcms Create'
         }
       })
       .state('fcms.edit', {
         url: '/:fcmId/edit',
-        templateUrl: 'modules/fcms/client/views/form-fcm.client.view.html',
+        templateUrl: '/modules/fcms/client/views/form-fcm.client.view.html',
         controller: 'FcmsController',
         controllerAs: 'vm',
         resolve: {
@@ -51,13 +51,13 @@
       })
       .state('fcms.view', {
         url: '/:fcmId',
-        templateUrl: 'modules/fcms/client/views/view-fcm.client.view.html',
+        templateUrl: '/modules/fcms/client/views/view-fcm.client.view.html',
         controller: 'FcmsController',
         controllerAs: 'vm',
         resolve: {
           fcmResolve: getFcm
         },
-        data:{
+        data: {
           pageTitle: 'Fcm {{ articleResolve.name }}'
         }
       });
@@ -76,4 +76,4 @@
   function newFcm(FcmsService) {
     return new FcmsService();
   }
-})();
+}());

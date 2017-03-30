@@ -6,7 +6,7 @@
     var $scope,
       FcmsService;
 
-    //We can start by loading the main application module
+    // We can start by loading the main application module
     beforeEach(module(ApplicationConfiguration.applicationModuleName));
 
     // The injector ignores leading and trailing underscores here (i.e. _$httpBackend_).
@@ -53,7 +53,7 @@
             name: 'Fcm Name'
           });
 
-          //Initialize Controller
+          // Initialize Controller
           FcmsController = $controller('FcmsController as vm', {
             $scope: $scope,
             fcmResolve: mockFcm
@@ -100,7 +100,7 @@
           // create mock Fcm
           mockFcm = new FcmsService();
 
-          //Initialize Controller
+          // Initialize Controller
           FcmsController = $controller('FcmsController as vm', {
             $scope: $scope,
             fcmResolve: mockFcm
@@ -149,7 +149,7 @@
             name: 'Fcm Name'
           });
 
-          //Initialize Controller
+          // Initialize Controller
           FcmsController = $controller('FcmsController as vm', {
             $scope: $scope,
             fcmResolve: mockFcm
@@ -190,4 +190,4 @@
 
     });
   });
-})();
+}());

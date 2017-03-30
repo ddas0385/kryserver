@@ -16,7 +16,7 @@ var TemplateSchema = new Schema({
   ID: {
     type: Number,
     required: true,
-    min: 1  
+    min: 1
   },
   TemplateType: {
     type: Schema.ObjectId,

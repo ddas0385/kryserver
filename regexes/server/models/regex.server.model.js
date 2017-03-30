@@ -16,7 +16,7 @@ var RegexSchema = new Schema({
   ID: {
     type: Number,
     required: true,
-    min: 1  
+    min: 1
   },
   Type: {
     type: String,
@@ -57,14 +57,14 @@ var RegexSchema = new Schema({
   Version: {
     type: Number
   }
-}, 
+},
   {
     collection: 'Regex',
     timestamps: { createdAt: 'CreatedAt', updatedAt: 'UpdatedAt' }
   });
 
 RegexSchema.path('Type', {
-  set : function(Type) {
+  set: function(Type) {
     this.PlaceHolder = Type;
     return Type;
   }

@@ -16,7 +16,7 @@
       })
       .state('templates.list', {
         url: '',
-        templateUrl: 'modules/templates/client/views/list-templates.client.view.html',
+        templateUrl: '/modules/templates/client/views/list-templates.client.view.html',
         controller: 'TemplatesListController',
         controllerAs: 'vm',
         data: {
@@ -25,7 +25,7 @@
       })
       .state('templates.create', {
         url: '/create',
-        templateUrl: 'modules/templates/client/views/form-template.client.view.html',
+        templateUrl: '/modules/templates/client/views/form-template.client.view.html',
         controller: 'TemplatesController',
         controllerAs: 'vm',
         resolve: {
@@ -33,12 +33,12 @@
         },
         data: {
           roles: ['user', 'admin'],
-          pageTitle : 'Templates Create'
+          pageTitle: 'Templates Create'
         }
       })
       .state('templates.edit', {
         url: '/:templateId/edit',
-        templateUrl: 'modules/templates/client/views/form-template.client.view.html',
+        templateUrl: '/modules/templates/client/views/form-template.client.view.html',
         controller: 'TemplatesController',
         controllerAs: 'vm',
         resolve: {
@@ -51,13 +51,13 @@
       })
       .state('templates.view', {
         url: '/:templateId',
-        templateUrl: 'modules/templates/client/views/view-template.client.view.html',
+        templateUrl: '/modules/templates/client/views/view-template.client.view.html',
         controller: 'TemplatesController',
         controllerAs: 'vm',
         resolve: {
           templateResolve: getTemplate
         },
-        data:{
+        data: {
           pageTitle: 'Template {{ articleResolve.name }}'
         }
       });
@@ -76,4 +76,4 @@
   function newTemplate(TemplatesService) {
     return new TemplatesService();
   }
-})();
+}());

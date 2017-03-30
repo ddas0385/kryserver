@@ -6,7 +6,7 @@
     var $scope,
       TemplatetypesService;
 
-    //We can start by loading the main application module
+    // We can start by loading the main application module
     beforeEach(module(ApplicationConfiguration.applicationModuleName));
 
     // The injector ignores leading and trailing underscores here (i.e. _$httpBackend_).
@@ -53,7 +53,7 @@
             name: 'Templatetype Name'
           });
 
-          //Initialize Controller
+          // Initialize Controller
           TemplatetypesController = $controller('TemplatetypesController as vm', {
             $scope: $scope,
             templatetypeResolve: mockTemplatetype
@@ -100,7 +100,7 @@
           // create mock Templatetype
           mockTemplatetype = new TemplatetypesService();
 
-          //Initialize Controller
+          // Initialize Controller
           TemplatetypesController = $controller('TemplatetypesController as vm', {
             $scope: $scope,
             templatetypeResolve: mockTemplatetype
@@ -149,7 +149,7 @@
             name: 'Templatetype Name'
           });
 
-          //Initialize Controller
+          // Initialize Controller
           TemplatetypesController = $controller('TemplatetypesController as vm', {
             $scope: $scope,
             templatetypeResolve: mockTemplatetype
@@ -190,4 +190,4 @@
 
     });
   });
-})();
+}());

@@ -6,7 +6,7 @@
     var $scope,
       RegexesService;
 
-    //We can start by loading the main application module
+    // We can start by loading the main application module
     beforeEach(module(ApplicationConfiguration.applicationModuleName));
 
     // The injector ignores leading and trailing underscores here (i.e. _$httpBackend_).
@@ -53,7 +53,7 @@
             name: 'Regex Name'
           });
 
-          //Initialize Controller
+          // Initialize Controller
           RegexesController = $controller('RegexesController as vm', {
             $scope: $scope,
             regexResolve: mockRegex
@@ -100,7 +100,7 @@
           // create mock Regex
           mockRegex = new RegexesService();
 
-          //Initialize Controller
+          // Initialize Controller
           RegexesController = $controller('RegexesController as vm', {
             $scope: $scope,
             regexResolve: mockRegex
@@ -149,7 +149,7 @@
             name: 'Regex Name'
           });
 
-          //Initialize Controller
+          // Initialize Controller
           RegexesController = $controller('RegexesController as vm', {
             $scope: $scope,
             regexResolve: mockRegex
@@ -190,4 +190,4 @@
 
     });
   });
-})();
+}());

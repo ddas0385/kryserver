@@ -16,7 +16,7 @@
       })
       .state('templatetypes.list', {
         url: '',
-        templateUrl: 'modules/templatetypes/client/views/list-templatetypes.client.view.html',
+        templateUrl: '/modules/templatetypes/client/views/list-templatetypes.client.view.html',
         controller: 'TemplatetypesListController',
         controllerAs: 'vm',
         data: {
@@ -25,7 +25,7 @@
       })
       .state('templatetypes.create', {
         url: '/create',
-        templateUrl: 'modules/templatetypes/client/views/form-templatetype.client.view.html',
+        templateUrl: '/modules/templatetypes/client/views/form-templatetype.client.view.html',
         controller: 'TemplatetypesController',
         controllerAs: 'vm',
         resolve: {
@@ -33,12 +33,12 @@
         },
         data: {
           roles: ['user', 'admin'],
-          pageTitle : 'Templatetypes Create'
+          pageTitle: 'Templatetypes Create'
         }
       })
       .state('templatetypes.edit', {
         url: '/:templatetypeId/edit',
-        templateUrl: 'modules/templatetypes/client/views/form-templatetype.client.view.html',
+        templateUrl: '/modules/templatetypes/client/views/form-templatetype.client.view.html',
         controller: 'TemplatetypesController',
         controllerAs: 'vm',
         resolve: {
@@ -51,13 +51,13 @@
       })
       .state('templatetypes.view', {
         url: '/:templatetypeId',
-        templateUrl: 'modules/templatetypes/client/views/view-templatetype.client.view.html',
+        templateUrl: '/modules/templatetypes/client/views/view-templatetype.client.view.html',
         controller: 'TemplatetypesController',
         controllerAs: 'vm',
         resolve: {
           templatetypeResolve: getTemplatetype
         },
-        data:{
+        data: {
           pageTitle: 'Templatetype {{ articleResolve.name }}'
         }
       });
@@ -76,4 +76,4 @@
   function newTemplatetype(TemplatetypesService) {
     return new TemplatetypesService();
   }
-})();
+}());

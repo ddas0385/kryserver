@@ -16,7 +16,7 @@
       })
       .state('potentialtemplates.list', {
         url: '',
-        templateUrl: 'modules/potentialtemplates/client/views/list-potentialtemplates.client.view.html',
+        templateUrl: '/modules/potentialtemplates/client/views/list-potentialtemplates.client.view.html',
         controller: 'PotentialtemplatesListController',
         controllerAs: 'vm',
         data: {
@@ -25,7 +25,7 @@
       })
       .state('potentialtemplates.create', {
         url: '/create',
-        templateUrl: 'modules/potentialtemplates/client/views/form-potentialtemplate.client.view.html',
+        templateUrl: '/modules/potentialtemplates/client/views/form-potentialtemplate.client.view.html',
         controller: 'PotentialtemplatesController',
         controllerAs: 'vm',
         resolve: {
@@ -33,12 +33,12 @@
         },
         data: {
           roles: ['user', 'admin'],
-          pageTitle : 'Potential Template Create'
+          pageTitle: 'Potential Template Create'
         }
       })
       .state('potentialtemplates.edit', {
         url: '/:potentialtemplateId/edit',
-        templateUrl: 'modules/potentialtemplates/client/views/form-potentialtemplate.client.view.html',
+        templateUrl: '/modules/potentialtemplates/client/views/form-potentialtemplate.client.view.html',
         controller: 'PotentialtemplatesController',
         controllerAs: 'vm',
         resolve: {
@@ -51,13 +51,13 @@
       })
       .state('potentialtemplates.view', {
         url: '/:potentialtemplateId',
-        templateUrl: 'modules/potentialtemplates/client/views/view-potentialtemplate.client.view.html',
+        templateUrl: '/modules/potentialtemplates/client/views/view-potentialtemplate.client.view.html',
         controller: 'PotentialtemplatesController',
         controllerAs: 'vm',
         resolve: {
           potentialtemplateResolve: getPotentialtemplate
         },
-        data:{
+        data: {
           pageTitle: 'Potential Template {{ articleResolve.name }}'
         }
       });
@@ -76,4 +76,4 @@
   function newPotentialtemplate(PotentialtemplatesService) {
     return new PotentialtemplatesService();
   }
-})();
+}());

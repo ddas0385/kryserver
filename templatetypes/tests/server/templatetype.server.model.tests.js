@@ -11,7 +11,8 @@ var should = require('should'),
 /**
  * Globals
  */
-var user, templatetype;
+var user;
+var templatetype;
 
 /**
  * Unit tests
@@ -27,7 +28,7 @@ describe('Templatetype Model Unit Tests:', function() {
       password: 'password'
     });
 
-    user.save(function() { 
+    user.save(function() {
       templatetype = new Templatetype({
         name: 'Templatetype Name',
         user: user
@@ -46,7 +47,7 @@ describe('Templatetype Model Unit Tests:', function() {
       });
     });
 
-    it('should be able to show an error when try to save without name', function(done) { 
+    it('should be able to show an error when try to save without name', function(done) {
       templatetype.name = '';
 
       return templatetype.save(function(err) {
@@ -56,10 +57,10 @@ describe('Templatetype Model Unit Tests:', function() {
     });
   });
 
-  afterEach(function(done) { 
-    Templatetype.remove().exec(function(){
-      User.remove().exec(function(){
-        done();  
+  afterEach(function(done) {
+    Templatetype.remove().exec(function() {
+      User.remove().exec(function() {
+        done();
       });
     });
   });

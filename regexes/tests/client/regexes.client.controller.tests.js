@@ -63,7 +63,7 @@
         regexResolve: {}
       });
 
-      //Spy on state go
+      // Spy on state go
       spyOn($state, 'go');
     }));
 
@@ -141,12 +141,12 @@
 
     describe('vm.remove()', function () {
       beforeEach(function () {
-        //Setup Regexes
+        // Setup Regexes
         $scope.vm.regex = mockRegex;
       });
 
       it('should delete the Regex and redirect to Regexes', function () {
-        //Return true on confirm message
+        // Return true on confirm message
         spyOn(window, 'confirm').and.returnValue(true);
 
         $httpBackend.expectDELETE(/api\/regexes\/([0-9a-fA-F]{24})$/).respond(204);
@@ -158,7 +158,7 @@
       });
 
       it('should should not delete the Regex and not redirect', function () {
-        //Return false on confirm message
+        // Return false on confirm message
         spyOn(window, 'confirm').and.returnValue(false);
 
         $scope.vm.remove();
@@ -167,4 +167,4 @@
       });
     });
   });
-})();
+}());

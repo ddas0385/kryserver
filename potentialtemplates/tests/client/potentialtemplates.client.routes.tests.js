@@ -6,7 +6,7 @@
     var $scope,
       PotentialtemplatesService;
 
-    //We can start by loading the main application module
+    // We can start by loading the main application module
     beforeEach(module(ApplicationConfiguration.applicationModuleName));
 
     // The injector ignores leading and trailing underscores here (i.e. _$httpBackend_).
@@ -53,7 +53,7 @@
             name: 'Potentialtemplate Name'
           });
 
-          //Initialize Controller
+          // Initialize Controller
           PotentialtemplatesController = $controller('PotentialtemplatesController as vm', {
             $scope: $scope,
             potentialtemplateResolve: mockPotentialtemplate
@@ -100,7 +100,7 @@
           // create mock Potentialtemplate
           mockPotentialtemplate = new PotentialtemplatesService();
 
-          //Initialize Controller
+          // Initialize Controller
           PotentialtemplatesController = $controller('PotentialtemplatesController as vm', {
             $scope: $scope,
             potentialtemplateResolve: mockPotentialtemplate
@@ -149,7 +149,7 @@
             name: 'Potentialtemplate Name'
           });
 
-          //Initialize Controller
+          // Initialize Controller
           PotentialtemplatesController = $controller('PotentialtemplatesController as vm', {
             $scope: $scope,
             potentialtemplateResolve: mockPotentialtemplate
@@ -190,4 +190,4 @@
 
     });
   });
-})();
+}());

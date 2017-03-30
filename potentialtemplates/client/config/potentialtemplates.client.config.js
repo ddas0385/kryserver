@@ -5,11 +5,11 @@
     .module('potentialtemplates')
     .run(menuConfig);
 
-  menuConfig.$inject = ['Menus'];
+  menuConfig.$inject = ['menuService'];
 
-  function menuConfig(Menus) {
+  function menuConfig(menuService) {
     // Set top bar menu items
-    Menus.addMenuItem('topbar', {
+    menuService.addMenuItem('topbar', {
       title: 'Potential Templates',
       state: 'potentialtemplates',
       type: 'dropdown',
@@ -17,16 +17,16 @@
     });
 
     // Add the dropdown list item
-    Menus.addSubMenuItem('topbar', 'potentialtemplates', {
+    menuService.addSubMenuItem('topbar', 'potentialtemplates', {
       title: 'List Potential Templates',
       state: 'potentialtemplates.list'
     });
 
     // Add the dropdown create item
-    Menus.addSubMenuItem('topbar', 'potentialtemplates', {
+    menuService.addSubMenuItem('topbar', 'potentialtemplates', {
       title: 'Create Potential Template',
       state: 'potentialtemplates.create',
       roles: ['user']
     });
   }
-})();
+}());

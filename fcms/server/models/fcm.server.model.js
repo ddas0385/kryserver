@@ -16,8 +16,8 @@ var FcmSchema = new Schema({
   ID: {
     type: Number,
     required: true,
-    min: 1  
-  },    
+    min: 1
+  },
   Name: {
     type: String,
     required: true,
@@ -37,7 +37,7 @@ var FcmSchema = new Schema({
   },
   Version: {
     type: Number
-  }    
+  }
 },
   {
     collection: 'Fcm',

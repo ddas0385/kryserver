@@ -16,7 +16,7 @@ var TemplateTypeSchema = new Schema({
   ID: {
     type: Number,
     required: true,
-    min: 1  
+    min: 1
   },
   Name: {
     type: String,
@@ -39,7 +39,7 @@ var TemplateTypeSchema = new Schema({
   Version: {
     type: Number
   }
-}, 
+},
   {
     collection: 'TemplateType',
     timestamps: { createdAt: 'CreatedAt', updatedAt: 'UpdatedAt' }

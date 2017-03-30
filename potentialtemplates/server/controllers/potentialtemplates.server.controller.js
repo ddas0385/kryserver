@@ -36,7 +36,8 @@ exports.read = function(req, res) {
 
   // Add a custom field to the Article, for determining if the current User is the "owner".
   // NOTE: This field is NOT persisted to the database, since it doesn't exist in the Article model.
-  potentialtemplate.isCurrentUserOwner = req.user && potentialtemplate.User && potentialtemplate.User._id.toString() === req.user._id.toString() ? true : false;
+  // potentialtemplate.isCurrentUserOwner = req.user && potentialtemplate.User && potentialtemplate.User._id.toString() === req.user._id.toString() ? true : false;
+  potentialtemplate.isCurrentUserOwner = req.user && potentialtemplate.User && potentialtemplate.User._id.toString() === req.user._id.toString();
 
   res.jsonp(potentialtemplate);
 };
@@ -45,9 +46,9 @@ exports.read = function(req, res) {
  * Update a Potentialtemplate
  */
 exports.update = function(req, res) {
-  var potentialtemplate = req.potentialtemplate ;
+  var potentialtemplate = req.potentialtemplate;
 
-  potentialtemplate = _.extend(potentialtemplate , req.body);
+  potentialtemplate = _.extend(potentialtemplate, req.body);
 
   potentialtemplate.save(function(err) {
     if (err) {
@@ -64,7 +65,7 @@ exports.update = function(req, res) {
  * Delete an Potentialtemplate
  */
 exports.delete = function(req, res) {
-  var potentialtemplate = req.potentialtemplate ;
+  var potentialtemplate = req.potentialtemplate;
 
   potentialtemplate.remove(function(err) {
     if (err) {
@@ -80,7 +81,7 @@ exports.delete = function(req, res) {
 /**
  * List of Potentialtemplates
  */
-exports.list = function(req, res) { 
+exports.list = function(req, res) {
   Potentialtemplate.find().sort('-Score').populate('User', 'displayName').exec(function(err, potentialtemplates) {
     if (err) {
       return res.status(400).send({
