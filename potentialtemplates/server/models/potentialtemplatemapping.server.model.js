@@ -10,28 +10,23 @@ var mongoose = require('mongoose'),
 autoIncrement.initialize(mongoose.connection);
 
 /**
- * Potentialtemplate Schema
+ * Potentialtemplatemapping Schema
  */
-var PotentialTemplateSchema = new Schema({
+var PotentialTemplateMappingSchema = new Schema({
   ID: {
     type: Number,
     required: true,
     min: 1
   },
-  AddressInfo: {
+  PotentialTemplate: {
+    type: Schema.ObjectId,
+    ref: 'PotentialTemplate',
+    required: true
+  },
+  SenderID: {
     type: String,
     required: true,
     trim: true
-  },
-  Info: {
-    type: String,
-    required: true,
-    trim: true
-  },
-  Score: {
-    type: Number,
-    required: true,
-    min: 1
   },
   User: {
     type: Schema.ObjectId,
@@ -50,25 +45,15 @@ var PotentialTemplateSchema = new Schema({
   }
 },
   {
-    collection: 'PotentialTemplate',
+    collection: 'PotentialTemplateMapping',
     timestamps: { createdAt: 'CreatedAt', updatedAt: 'UpdatedAt' }
   });
 
-PotentialTemplateSchema.plugin(autoIncrement.plugin, {
-  model: 'PotentialTemplate',
+PotentialTemplateMappingSchema.plugin(autoIncrement.plugin, {
+  model: 'PotentialTemplateMapping',
   field: 'ID',
   startAt: 1,
   incrementBy: 1
 });
 
-PotentialTemplateSchema.methods.getCount = function(callback) {
-  this.db.model('PotentialTemplateMapping').find({ 'PotentialTemplate': this }).count(function(err, count) {
-    if (err) {
-      callback(0);
-    } else {
-      callback(count);
-    }
-  });
-};
-
-mongoose.model('PotentialTemplate', PotentialTemplateSchema);
+mongoose.model('PotentialTemplateMapping', PotentialTemplateMappingSchema);
