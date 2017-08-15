@@ -1,0 +1,5 @@
+#Copy Dockerfile to $HOME folder
+sudo apt-get install docker.io
+sudo service docker restart
+sudo docker build -t kry\krymean ./
+sudo docker run -d --name kryserver -p 80:3000 kry\krymean

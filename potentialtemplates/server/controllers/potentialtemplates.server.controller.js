@@ -22,7 +22,7 @@ var path = require('path'),
 function savePotentialTemplateMapping(potentialtemplate, req, res, callback) {
   var potentialtemplatemapping = new Potentialtemplatemapping();
   potentialtemplatemapping.PotentialTemplate = potentialtemplate;
-  potentialtemplatemapping.SenderID = req.SenderID;
+  potentialtemplatemapping.SenderID = req.headers.senderid;
   potentialtemplatemapping.User = req.user;
 
   potentialtemplatemapping.save(function(err) {
@@ -90,7 +90,7 @@ function processPotentialTemplate(potentialtemplate, req, res, callback) {
  */
 exports.create = function(req, res) {
   // TODO : Remove Sender ID
-  // req.SenderID = '1234';
+  // req.headers.senderid = 1234;
   if (Array.isArray(req.body)) {
     var responseArray = [],
       requestLength = req.body.length;
